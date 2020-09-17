@@ -22,12 +22,11 @@ def main():
         bot.send_message(chat_id, reply, parse_mode='markdown')
     else:
         if 'copyright' not in json2py:
-            reply = t("Today's APOD is [{json2py['title']}]({json2py['url']}).\n\n{json2py['explanation']}\n\nCheck out HD picture [here]({json2py['hdurl']}).","es","en")
+            reply = (t(f"Today's APOD is [{json2py['title']}]","es","en")+"f({json2py['url']})"+t(("\n\n{json2py['explanation']}\n\nCheck out HD picture [here]({json2py['hdurl']}).","es","en"))
         else:
-            reply = t(f"Today's APOD is [{json2py['title']}]({json2py['url']}).\n\n{json2py['explanation']}\n\nCheck out HD picture [here]({json2py['hdurl']}).\n\nImage Credit & Copyright: {json2py['copyright']}.","es","en")
+            reply = f"Today's APOD is [{json2py['title']}]({json2py['url']}).\n\n{json2py['explanation']}\n\nCheck out HD picture [here]({json2py['hdurl']}).\n\nImage Credit & Copyright: {json2py['copyright']}.","es","en")
         bot.send_message(chat_id, reply, parse_mode='markdown')
 
 if __name__ == '__main__':
     translator = trans()
     main()
-    
