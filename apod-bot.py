@@ -42,11 +42,9 @@ def main():
         hdurl = f"{json2py['hdurl']}"
         if 'copyright' not in json2py:
             teleapod = intro + " [" + title + "](" + url + ").\n\n" + explanation + "\n\n" + outro + "(" + hdurl + ")."
-            reply = f"Today's APOD is [{json2py['title']}]({json2py['url']}).\n\n{json2py['explanation']}\n\nCheck out HD picture [here]({json2py['hdurl']})."
         else:
             imgrights = f"{json2py['copyright']}"
             teleapod = intro + " [" + title + "](" + url + ").\n\n" + explanation + "\n\n" + outro + "(" + hdurl + ").\n\n" + coutro + ": " + imgrights + "."
-            reply = f"Today's APOD is [{json2py['title']}]({json2py['url']}).\n\n{json2py['explanation']}\n\nCheck out HD picture [here]({json2py['hdurl']}).\n\nImage Credit & Copyright: {json2py['copyright']}."
     telepost(chat_id, teleapod, parse_mode='markdown')
 
 if __name__ == '__main__':
